@@ -11,6 +11,7 @@ class Centimetro
   # 1 cm = 0,3937 pol
   def to_pol
     x = @valor * 0.3937;
+    x = x.round(2)
     x.to_s + "pol"
   end
 end
@@ -27,6 +28,7 @@ class Polegada
   # 1 pol = 2,54 cm
   def to_cm
     x = @valor * 2.54;
+    x = x.round(2)
     x.to_s + "cm"
   end
 end
@@ -43,6 +45,7 @@ class Jarda
   # 1 jd = 36 pol
   def to_jd
     x = @valor * 36;
+    x = x.round(2)
     x.to_s + "pol"
   end
 end
