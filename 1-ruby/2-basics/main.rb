@@ -1,14 +1,22 @@
 # print "hello world"
 puts "Hello world"
 
+puts "\n"
+
 # find the index of the word Ruby in "Hello Ruby"
 puts "Hello Ruby".index "Ruby"
+
+puts "\n"
 
 # print your name ten times
 puts("Ana " * 10)
 
+puts "\n"
+
 # print "this is the sentence x" where x changes from 1 to 10
 (1..10).each { |x| puts "this is the sentence #{x}" }
+
+puts "\n"
 
 # day 1
 
