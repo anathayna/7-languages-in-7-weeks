@@ -1,4 +1,3 @@
-import Html exposing (text)
+module Main exposing (..)
 
-main =
-  text "Hello!"
+add a b = a + b
