@@ -1,12 +1,13 @@
 module Main exposing (..)
 import Browser
 import Html exposing(div, text)
+import String exposing(fromInt)
 
 init =
-    { value = 0 }
+    { value = 42 }
 
 view model =
-    div [] [text "hello!"]
+    div [] [text (fromInt model.value)]
 
 update model =
     model
