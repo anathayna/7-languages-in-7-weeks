@@ -1,4 +1,4 @@
-print "Olá Mundo"
+print "hello world"
 
 print(6 + 5 * 4 - 3 / 2) 
 
