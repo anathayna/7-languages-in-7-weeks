@@ -21,6 +21,8 @@ var2 = 20
 print(type(var1))
 print(type(var2))
 
+print "\n"
+
 local multistring = [[
 	Hello. This is a very long string 
 	that is declared using double square 
@@ -29,8 +31,12 @@ local multistring = [[
 
 print(multistring)
 
+print "\n"
+
 print(string.len(""))
 print(string.len("Lua"))
+
+print "\n"
 
 print(string.upper("Hello Lua user!"))
 print(string.lower("Hello Lua user!"))
