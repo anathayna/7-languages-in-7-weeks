@@ -1,14 +1,19 @@
 -- Contagem: DNA
 
 function dna(cadeia, tabela)
-  tabela.A = 1
+  for i=1 , #cadeia do
+    -- local c = cadeia:sub(i,i)
+    local x = string.sub(cadeia,i,i)
+    tabela[x] = tabela[x] + 1
+  end
 end
 
 nucleotideos = {
   A = 0,
   G = 0,
   T = 0,
-  C = 0 }
+  C = 0 
+}
 
 dna("ACGTCCCCGAGC", nucleotideos)
 
