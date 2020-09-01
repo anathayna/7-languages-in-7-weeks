@@ -41,20 +41,17 @@ fn main() {
     
 
     // coleções
-    // arrays - imutáveis
-    println!("\n\t ---- arrays -----");
+    println!("\n\t ---- arrays -----"); //imutáveis
     let xs: [i32; 5] = [1, 2, 3, 4, 5]; // arrays são de tamanho fixo. posso assinar i32 e ter valor padrão 5 (opcional)
     println!("tamanho do array: {}", xs.len());
     println!("segundo elemento: {}", xs[1]);
 
-    // vetor - mutáveis
-    println!("\n\t ---- vetores -----");
+    println!("\n\t ---- vetores -----"); // mutáveis
     let mut vec = Vec::new();
     vec.push(12);
     vec.push(345);
     println!("{:?}", vec);
 
-    // tuplas
     let par = (1, true);
     println!("\n\t ---- tuplas -----");
     println!("par {:?}", par);
