@@ -4,6 +4,7 @@ function dna(cadeia, tabela)
   for i=1 , #cadeia do
     -- local c = cadeia:sub(i,i)
     local c = string.sub(cadeia,i,i)
+    -- tabela.A = tabela.A + 1
     tabela[c] = tabela[c] + 1
   end
 end
