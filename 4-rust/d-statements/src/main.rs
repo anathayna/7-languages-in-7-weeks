@@ -21,10 +21,8 @@ fn main() {
     println!("if nested: {}", big_n);
 
     println!("\n\t ---- while -----");
-    // counter variable
     let mut n = 1;
 
-    // loop while `n` is less than 101
     while n < 101 {
         if n % 15 == 0 {
             println!("fizzbuzz");

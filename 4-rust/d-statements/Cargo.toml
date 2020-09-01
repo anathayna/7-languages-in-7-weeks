@@ -1,5 +1,5 @@
 [package]
-name = "d-statement"
+name = "d-statements"
 version = "0.1.0"
 authors = ["anathayna <anathaynafranca@gmail.com>"]
 edition = "2018"
