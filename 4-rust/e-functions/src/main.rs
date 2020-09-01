@@ -1,5 +1,4 @@
 fn is_divisible_by(lhs: u32, rhs: u32) -> bool {
-    // corner case, early return
     if rhs == 0 {
         return false;
     }
