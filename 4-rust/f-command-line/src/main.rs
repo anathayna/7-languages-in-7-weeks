@@ -1,23 +1,28 @@
-struct Cli {
-    pattern: String,
-    path: std::path::PathBuf,
+use structopt::StructOpt;
+
+#[derive(StructOpt)]
+struct Cli{
+  padrao: String,
+  #[structopt(parse(from_os_str))]
+  arquivo: std::path::PathBuf,
 }
 
 fn main() {
-  let pattern = std::env::args().nth(1).expect("no pattern given");
-  let path = std::env::args().nth(2).expect("no path given"); 
-
+  let padrao = std::env::args().nth(1).expect("no pattern given");
+  let caminho = std::env::args().nth(2).expect("no path given");
   let args = Cli {
-    pattern: pattern,
-    path: std::path::PathBuf::from(path),
+    padrao: padrao,
+    arquivo: std::path::PathBuf::from(caminho),
   };
 
-  let content = std::fs::read_to_string(&args.path)
+  let args = Cli::from_args();
+
+  let content = std::fs::read_to_string(&args.arquivo)
     .expect("could not read file");
 
   for line in content.lines() {
-    if line.contains(&args.pattern) {
-        println!("{}", line);
+    if line.contains(&args.padrao) {
+      println!("{}", line);
     }
   }
 }
