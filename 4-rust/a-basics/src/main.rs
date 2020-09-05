@@ -3,3 +3,4 @@ fn main() {
 }
 
 // cargo new a-basics --bin
+// cargo run 
