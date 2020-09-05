@@ -1,8 +1,5 @@
-//https://rust-cli.github.io/book/index.html
-//https://docs.rs/structopt/0.3.17/structopt/
-//https://doc.rust-lang.org/std/string/struct.String.html
+// https://doc.rust-lang.org/std/string/struct.String.html
 
-// counts são int
 // qual o melhor escolher? i8, i16, i32... justifique c/ comentário
 
 use structopt::StructOpt;
@@ -25,12 +22,6 @@ fn main() {
             println!("{}", line);
         }
     }
-
-    // read_file(&args.file)?
-    //     .lines()
-    //     .take(args.num)
-    //     .for_each(|line| println!("{}", line));
-    // Ok(())
 }
 
 // count -l ~/count.txt exibe a linha -> wc -l count.txt
