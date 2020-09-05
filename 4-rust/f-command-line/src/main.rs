@@ -8,13 +8,6 @@ struct Cli{
 }
 
 fn main() {
-  let padrao = std::env::args().nth(1).expect("no pattern given");
-  let caminho = std::env::args().nth(2).expect("no path given");
-  let args = Cli {
-    padrao: padrao,
-    arquivo: std::path::PathBuf::from(caminho),
-  };
-
   let args = Cli::from_args();
 
   let content = std::fs::read_to_string(&args.arquivo)
@@ -26,3 +19,7 @@ fn main() {
     }
   }
 }
+
+// grep "test" test.txt
+// cargo run test test.txt
+// cargo build
