@@ -1,37 +1,22 @@
-//https://rust-cli.github.io/book/index.html
-//https://docs.rs/structopt/0.3.17/structopt/
-//https://doc.rust-lang.org/std/string/struct.String.html
+// https://doc.rust-lang.org/std/string/struct.String.html
 
-// conts são int
 // qual o melhor escolher? i8, i16, i32... justifique c/ comentário
 
-use structopt::StructOpt;
-
-#[derive(StructOpt)]
-struct Cli{
-    padrao: String,
-    #[structopt(parse(from_os_str))]
-    arquivo: std::path::PathBuf,
-}
+use std::env; // Use this crate to access command line arguments.
 
 fn main() {
-    let args = Cli::from_args();
+    let args: Vec<String> = env::args().collect();
 
-    let content = std::fs::read_to_string(&args.arquivo)
-    .expect("could not read file");
+    if args.len() < 2 {
+        panic!( "Program arguments missing. Please provide a file name" );            
+    } 
 
-    for line in content.lines() {
-        if line.contains(&args.padrao) {
-            println!("{}", line);
-        }
+    let files: Vec<String> = Vec::from( &args[1..] );
+
+    for file_name in files.iter() {
+        println!( "Got file name: {}", count.txt);
     }
-
-    // read_file(&args.file)?
-    //     .lines()
-    //     .take(args.num)
-    //     .for_each(|line| println!("{}", line));
-    // Ok(())
 }
 
-// cont -l ~/cont.txt exibe a linha -> wc -l cont.txt
-// cont -w ~/cont.txt exibe a qnt de palavras -> wc -w cont.txt 
+// count -l ~/count.txt exibe a linha -> wc -l count.txt
+// count -w ~/count.txt exibe a qnt de palavras -> wc -w count.txt 
