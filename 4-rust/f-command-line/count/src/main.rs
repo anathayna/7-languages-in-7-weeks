@@ -40,26 +40,23 @@ fn counter<R: BufRead> (reader: &mut R) -> Result<(i32, i32), String> {
 }
 
 fn count_file(file_path: &Path) -> Result< (i32,i32), String> {
-
     let file_handle = match File::open(&file_path) {
         Err(why) => return Err(why.to_string()),
         Ok(file_handle) => file_handle
     };
 
     let mut reader = BufReader::new(file_handle);
-
     let (lines, words) = counter(&mut reader)?;
     Ok((lines, words))
 }
 
 fn main() {
     let args: Vec<String> = env::args().collect();
+    let files: Vec<String> = Vec::from(&args[1..]);
 
     if args.len() < 2 {
         panic!("could not read file");            
     } 
-
-    let files: Vec<String> = Vec::from(&args[1..]);
 
     for file_name in files.iter() {
         let path = Path::new(&file_name); 
