@@ -1,13 +1,12 @@
 // https://doc.rust-lang.org/std/string/struct.String.html
 
-// qual o melhor escolher? i8, i16, i32... justifique c/ comentário
-
 use std::fs::File;
 use std::io::prelude::*;
 use std::io::BufReader;
 use std::path::Path;
 use std::env;
 
+// i8, i16, i32... justifique c/ comentário
 fn count_words(s: &String) -> i32 {
     let mut words: i32 = 0;
 
@@ -20,13 +19,12 @@ fn count_words(s: &String) -> i32 {
 }
 
 fn counter<R: BufRead> (reader: &mut R) -> Result<(i32, i32), String> {
-
     let mut total_lines: i32 = 0;
     let mut total_words: i32 = 0;
     let mut line = String::from("");
 
     loop{ 
-        match reader.read_line( &mut line ) {
+        match reader.read_line(&mut line) {
             Ok(_) => {
                 if line.len() == 0 {
                     break;
@@ -53,7 +51,7 @@ fn count_file(file_path: &Path) -> Result< (i32,i32), String> {
     let mut reader = BufReader::new(file_handle);
 
     let (lines, words) = counter(&mut reader)?;
-    Ok( (lines, words))
+    Ok((lines, words))
 }
 
 fn main() {
@@ -79,6 +77,6 @@ fn main() {
     }
 }
 
-// count -l ~/count.txt exibe a linha -> wc -l count.txt		
-// count -w ~/count.txt exibe a qnt de palavras -> wc -w count.txt
+// wc -l count.txt		
+// wc -w count.txt
 // cargo run ./count.txt 
