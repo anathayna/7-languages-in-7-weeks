@@ -4,7 +4,7 @@ use std::io::BufReader;
 use std::path::Path;
 use std::env;
 
-// i32: escolhi por ser a melhor utilização de cache nesse exemplo, ocupando só 8K de dados
+// i32: p/ melhor utilização de cache nesse exemplo, ocupando só 8K de dados
 fn count_words(s: &String) -> i32 {
     let mut words: i32 = 0;
 
