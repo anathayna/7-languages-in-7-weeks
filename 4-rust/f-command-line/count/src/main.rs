@@ -1,12 +1,10 @@
-// https://doc.rust-lang.org/std/string/struct.String.html
-
 use std::fs::File;
 use std::io::prelude::*;
 use std::io::BufReader;
 use std::path::Path;
 use std::env;
 
-// i8, i16, i32... justifique c/ comentário
+// i32: escolhi por ser a melhor utilização de cache nesse exemplo, ocupando só 8K de dados
 fn count_words(s: &String) -> i32 {
     let mut words: i32 = 0;
 
