@@ -19,14 +19,11 @@ fn count_words( s: &String ) -> i32 {
     words + 1
 }
 
-// Here we specify that count_words works for
 fn counter<R: BufRead> ( reader: &mut R ) -> Result<( i32, i32 ), String> {
 
-    // Define our line and word count variables
     let mut total_lines: i32 = 0;
     let mut total_words: i32 = 0;
 
-    // Create a String. This will be where each line is read to
     let mut line = String::from( "" );
 
     loop{ 
@@ -47,10 +44,6 @@ fn counter<R: BufRead> ( reader: &mut R ) -> Result<( i32, i32 ), String> {
     Ok( ( total_lines, total_words ) )
 }
 
-/*
- * Given a file, create a buffered reader, and
- * start reading & counting the data.
- */
 fn count_file( file_path: &Path ) -> Result< (i32,i32), String> {
 
     let file_handle = match File::open( &file_path ) {
@@ -58,7 +51,6 @@ fn count_file( file_path: &Path ) -> Result< (i32,i32), String> {
         Ok( file_handle ) => file_handle
     };
 
-    // On successful opening of the file, create a buffered reader
     let mut reader = BufReader::new( file_handle );
 
     let ( lines, words ) = counter( &mut reader )?;
@@ -69,10 +61,9 @@ fn main() {
     let args: Vec<String> = env::args().collect();
 
     if args.len() < 2 {
-        panic!( "Program arguments missing. Please provide a file name" );            
+        panic!("could not read file");            
     } 
 
-    // Get arguments from the command line, skipping the program name
     let files: Vec<String> = Vec::from( &args[1..] );
 
     for file_name in files.iter() {
@@ -83,7 +74,7 @@ fn main() {
                 println!("{}\t{} lines\t{} words.", path.display(), lines, words );
             },
             Err( err ) => {
-                panic!("Error - {}", err );
+                panic!("error - {}", err );
             }
         };
     }
