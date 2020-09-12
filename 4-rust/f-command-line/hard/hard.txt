@@ -1,0 +1,4 @@
+contador hard teste		
+teste teste testando contador hard	
+contador hard string		
+contador hard txt
