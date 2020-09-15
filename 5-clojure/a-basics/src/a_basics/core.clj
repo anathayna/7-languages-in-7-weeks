@@ -1,7 +1,6 @@
 (ns a-introducao.core
   (:gen-class))
 
-;; lein run
 (defn -main
   "intro ao clojure"
   [& args]
@@ -45,3 +44,7 @@
   (def pessoa {:nome "maria", :idade 28} )
   (println (pessoa :nome))
 )
+
+; lein new app
+; lein run
+; lein repl
