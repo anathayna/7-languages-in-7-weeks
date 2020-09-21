@@ -44,11 +44,38 @@
     )
   )
 
-  ; exemplo 2 - baralho
+  (println "\n---- baralho ----")
+  (def numeros #{:2 :3 :4 :5 :6 :7 :8 :9 :10 :J :Q :K :A})
+  (def naipes #{:♠ :♥ :♣ :♦})
+
+  (println "baralho todo")
   (println 
     (for 
-      [c [:2 :3 :4 :5 :6 :7 :8 :9 :10 :J :Q :K :A] s [:♠ :♥ :♣ :♦]]
-      [c s]
+      [c numeros s naipes] ;gerador
+      [c s] ;formato
+    )
+  )
+
+  ;; Truco: só temos as seguintes cartas
+  ;; Cartas: 3 2 A K J Q 7 6 5 4
+  ;; Naipes: todos
+  (println "baralho truco")
+  (println 
+    (for 
+      [c (disj numeros :8 :9 :10) s naipes] ;disjoin
+      [c s] ;formato
+    )
+  )
+
+  ;; Buraco: Usa-se 2 decks, ou seja, 104 cartas
+  ;; Cartas: todas
+  ;; Naipes: todos
+  ;; dica, verique a função repeate
+  (println "baralho buraco")
+  (println 
+    (for 
+      [c numeros s naipes] ;gerador
+      (repeat 2 [c s]) ;formato
     )
   )
 )
