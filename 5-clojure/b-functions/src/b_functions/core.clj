@@ -80,5 +80,15 @@
   (println (fact-tail 20))
 
   (println "\n---- bhaskara ----")
+  (defn bhaskara [a b c]
+    (defn delta [a b c]  (- (* b b) (* 4 a c )))
+    (defn x1 [a b c] (/ (+ (- b) (Math/sqrt (delta a b c))) (* 2 a)))
+    (defn x2 [a b c] (/ (- (- b) (Math/sqrt (delta a b c))) (* 2 a)))
+  
+    (if (> delta)
+      [(x1 a b c) (x2 a b c)]
+      (if (= (delta a b c)) [(x1 a b c)])
+    )
+  )
   (println (bhaskara 1 12 -13))
 )
