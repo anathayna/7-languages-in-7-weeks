@@ -34,4 +34,31 @@
   (println "\n---- filter ----")
   (defn positivo? [valor] (>= valor 0))
   (println (filter positivo? [0 -1 10 -5]))
+
+  (println "\n---- any ----")
+  (defn any? 
+    [f lista]
+    (reduce = false (map f lista)) ; = or
+  )
+  
+  (any? (fn [x] (< x 0)) [1 4 5 6]) ;; false
+  (any? (fn [x] (< x 0)) [1 4 -5 6]) ;; true
+
+  (println "\n---- aplicação ----")
+  (def pessoas 
+    [
+      {:nome "joana", :idade 12},
+      {:nome "pedro", :idade 36},
+      {:nome "maria", :idade 19},
+      {:nome "osires", :idade 55}
+    ]
+  )
+  
+  (defn get-adultos [f pessoas] (filter f pessoas))
+  
+  (def adulto-brasil (fn [x] (>= (get x :idade) 18)))
+  (def adulto-coreia (fn [x] (>= (get x :idade) 19)))
+  
+  (println (get-adultos adulto-brasil pessoas))
+  (println (get-adultos adulto-coreia pessoas))
 )
