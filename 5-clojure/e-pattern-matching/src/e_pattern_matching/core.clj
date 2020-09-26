@@ -18,6 +18,13 @@
   ; binding
   (println "------- binding -------")
   (def tabuleiro [[:x :o :x] [:x :o :x] [:x :o :x]])
-  (defn central [ [_ [_ c _]_]  ] c)
+  (defn central [ [_ [_ c _]_] ] c)
   (println (central tabuleiro))
+
+  (def num [1 2 3 4 5])
+  (let [[primeiro & restante :as todos] num]
+    (println primeiro)  
+    (println restante)
+    (println todos)
+  )
 )
