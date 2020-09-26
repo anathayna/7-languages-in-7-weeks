@@ -45,6 +45,6 @@
   (println (pessoa :nome))
 )
 
-; lein new app
+; lein new app folder-name
 ; lein run
 ; lein repl

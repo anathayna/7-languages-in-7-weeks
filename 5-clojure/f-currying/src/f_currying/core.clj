@@ -12,5 +12,5 @@
   (println ((soma2 10))
   (println ((soma2 50))
 
-  (println (map (partial reduce +) [[1 2 3 4] [5 6 7 8]]))))
-)
+  (println (map (partial reduce +) [[1 2 3 4] [5 6 7 8]]))
+  )

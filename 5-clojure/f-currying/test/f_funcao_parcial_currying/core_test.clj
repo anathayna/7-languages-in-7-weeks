@@ -1,6 +1,6 @@
-(ns f-currying.core-test
+(ns f-funcao-parcial-currying.core-test
   (:require [clojure.test :refer :all]
-            [f-currying.core :refer :all]))
+            [f-funcao-parcial-currying.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."
