@@ -14,6 +14,14 @@
         [0 _] "Fizz"
         [_ 0] "Buzz"
         :else n)))
+
+  (def n 15)
+  (println
+    (match [(mod n 3) (mod n 5)]
+      [0 0] "divisível por 3 e 5"
+      [0 _] "divisível por 3"
+      [_ 0] "divisível por 5"
+      :else "não é divisível"))
   
   ; binding
   (println "------- binding -------")
@@ -21,10 +29,9 @@
   (defn central [ [_ [_ c _]_] ] c)
   (println (central tabuleiro))
 
-  (def num [1 2 3 4 5])
-  (let [[primeiro & restante :as todos] num]
-    (println primeiro)  
-    (println restante)
-    (println todos)
-  )
+  (def n [1 2 3 4 5])
+  (let [[x & r :as t] n]
+    (println x)  
+    (println r)
+    (println t))
 )
