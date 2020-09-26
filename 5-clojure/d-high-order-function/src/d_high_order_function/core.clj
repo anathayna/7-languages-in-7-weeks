@@ -1,4 +1,4 @@
-(ns d-funcoes-alta-ordem.core
+(ns d-high-order-function.core
   (:gen-class))
 
 ; funções de alta ordem
@@ -35,7 +35,7 @@
   (defn positivo? [valor] (>= valor 0))
   (println (filter positivo? [0 -1 10 -5]))
 
-  (println "\n---- any ----")
+  (println "\n---- any? ----")
   (defn any? 
     [f lista]
     (reduce = false (map f lista)) ; = or

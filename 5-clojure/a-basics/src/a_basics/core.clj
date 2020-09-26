@@ -1,4 +1,4 @@
-(ns a-introducao.core
+(ns a-basics.core
   (:gen-class))
 
 (defn -main

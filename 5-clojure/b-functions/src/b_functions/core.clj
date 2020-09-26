@@ -1,4 +1,4 @@
-(ns b-funcoes.core
+(ns b-functions.core
   (:gen-class))
 
 ; função pura

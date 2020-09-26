@@ -1,4 +1,4 @@
-(ns c-operacoes-listas.core
+(ns c-lists.core
   (:gen-class))
 
 ; contador

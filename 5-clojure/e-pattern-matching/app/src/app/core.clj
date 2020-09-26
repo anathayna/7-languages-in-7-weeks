@@ -1,7 +1,6 @@
 (ns e-pattern-matching.core
   (:gen-class)
-  (:require [clojure.core.match :refer [match]])
-  )
+  (:require [clojure.core.match :refer [match]]))
 
 (defn -main
   [& args]
