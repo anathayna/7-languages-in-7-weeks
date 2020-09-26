@@ -35,6 +35,9 @@
   (defn positivo? [valor] (>= valor 0))
   (println (filter positivo? [0 -1 10 -5]))
 
+  ; função de alta ordem any?
+  ; verifica se algum emento aplica a função
+  ; que retorna um booleno
   (println "\n---- any? ----")
   (defn any? 
     [f lista]
@@ -43,6 +46,14 @@
   
   (any? (fn [x] (< x 0)) [1 4 5 6]) ;; false
   (any? (fn [x] (< x 0)) [1 4 -5 6]) ;; true
+
+  ; (map f lista) => (false false false false)
+  ; (reduce f acc novalista) => false
+
+  ; (or false false) ;=> false
+  ; (or false false) ;=> false
+  ; (or false true)  ;=> true
+  ; (= true false)   ;=> true
 
   (println "\n---- aplicação ----")
   (def pessoas 
@@ -56,9 +67,12 @@
   
   (defn get-adultos [f pessoas] (filter f pessoas))
   
-  (def adulto-brasil (fn [x] (>= (get x :idade) 18)))
+  ; fn -> anonymous func aka any?
+  (def adulto-brasil (fn [x] (>= (get x :idade) 18))) 
   (def adulto-coreia (fn [x] (>= (get x :idade) 19)))
   
   (println (get-adultos adulto-brasil pessoas))
   (println (get-adultos adulto-coreia pessoas))
+  ;; adulto-brasil? [{:nome "pedro", :idade 36} {:nome "maria", :idade 18} {:nome "osires", :idade 55}]
+  ;; adulto-coreia? [{:nome "pedro", :idade 36} {:nome "osires", :idade 55}]
 )
