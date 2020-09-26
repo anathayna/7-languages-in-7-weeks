@@ -49,24 +49,24 @@
     (println t))
 
   ; jogo da velha
-  (defn linha1? [ [[primeiro segundo terceiro] _ _] ] (= primeiro segundo terceiro))
-  (defn linha2? [ [_ [primeiro segundo terceiro] _] ] (= primeiro segundo terceiro))
-  (defn linha3? [ [_ _ [primeiro segundo terceiro]] ] (= primeiro segundo terceiro))
-  (defn coluna1? [ [[primeiro _ _] [segundo _ _] [terceiro _ _]] ] (= primeiro segundo terceiro))
-  (defn coluna2? [ [[_ primeiro _] [_ segundo _] [_ terceiro _]] ] (= primeiro segundo terceiro))
-  (defn coluna3? [ [[_ _ primeiro] [_ _ segundo] [_ _ terceiro]] ] (= primeiro segundo terceiro))
-  (defn diagonal1? [ [[primeiro _ _] [_ segundo _] [_ _ terceiro]] ] (= primeiro segundo terceiro))
-  (defn diagonal2? [ [[_ _ primeiro] [_ segundo _] [terceiro _ _]] ] (= primeiro segundo terceiro))
+  (defn l1? [[[um dois tres] _ _]] (= um dois tres))
+  (defn l2? [[_ [um dois tres] _]] (= um dois tres))
+  (defn l3? [[_ _ [um dois tres]]] (= um dois tres))
+  (defn c1? [[[um _ _] [dois _ _] [tres _ _]]] (= um dois tres))
+  (defn c2? [[[_ um _] [_ dois _] [_ tres _]]] (= um dois tres))
+  (defn c3? [[[_ _ um] [_ _ dois] [_ _ tres]]] (= um dois tres))
+  (defn d1? [[[um _ _] [_ dois _] [_ _ tres]]] (= um dois tres))
+  (defn d2? [[[_ _ um] [_ dois _] [tres _ _]]] (= um dois tres))
       
   (def funcoes [
-    {:nome "linha 1", :func linha1?},
-    {:nome "linha 2", :func linha2?},
-    {:nome "linha 3", :func linha3?},
-    {:nome "coluna 1", :func coluna1?},
-    {:nome "coluna 2", :func coluna2?},
-    {:nome "coluna 2", :func coluna3?},
-    {:nome "diagonal 1", :func diagonal1?},
-    {:nome "diagonal 2", :func diagonal2?}
+    {:nome "linha 1", :func l1?},
+    {:nome "linha 2", :func l2?},
+    {:nome "linha 3", :func l3?},
+    {:nome "coluna 1", :func c1?},
+    {:nome "coluna 2", :func c2?},
+    {:nome "coluna 2", :func c3?},
+    {:nome "diagonal 1", :func d1?},
+    {:nome "diagonal 2", :func d2?}
   ])
     
   (defn vencedor [tabuleiro]
@@ -75,16 +75,16 @@
     
   (def tabuleiro [[:x :o :o] [:o :x :o] [:o :o :x]])
     
-  (println "\nLinha 1: " (str (linha1? tabuleiro)))
-  (println "linha 2: " (str (linha2? tabuleiro)))
-  (println "linha 3: " (str (linha3? tabuleiro)))
+  (println "\nlinha 1: " (str (l1? tabuleiro)))
+  (println "linha 2: " (str (l2? tabuleiro)))
+  (println "linha 3: " (str (l3? tabuleiro)))
     
-  (println "coluna 1: " (str (coluna1? tabuleiro)))
-  (println "coluna 2: " (str (coluna2? tabuleiro)))
-  (println "coluna 3: " (str (coluna3? tabuleiro)))
+  (println "coluna 1: " (str (c1? tabuleiro)))
+  (println "coluna 2: " (str (c2? tabuleiro)))
+  (println "coluna 3: " (str (c3? tabuleiro)))
     
-  (println "diagonal 1: " (str (diagonal1? tabuleiro)))
-  (println "diagonal 2: " (str (diagonal2? tabuleiro)))
+  (println "diagonal 1: " (str (d1? tabuleiro)))
+  (println "diagonal 2: " (str (d2? tabuleiro)))
     
   (println "\n ** vencedor: " (str (vencedor tabuleiro)) "\n")
 )
