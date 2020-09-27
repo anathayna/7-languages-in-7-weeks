@@ -1,4 +1,4 @@
-(ns f-funcao-parcial-currying.core-test
+(ns f-currying.core-test
   (:require [clojure.test :refer :all]
             [f-funcao-parcial-currying.core :refer :all]))
 
