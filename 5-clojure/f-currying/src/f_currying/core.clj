@@ -18,14 +18,40 @@
   (def lista-ids [1 2 3 5 6 7 8 9 10])
   (def usaram-recurso-ids #{3 4 5 9}) ; #{} => Conjunto
 
-  ; dica: fazer uma função que checa se um item da lista está no conjunto usando contains?
   ; https://clojuredocs.org/clojure.core/contains_q
-
-
   (defn quem-usou-recurso 
     [lista-todos lista-usaram]
-    (map (partial contains? lista-usaram) lista-todos)
+    (map (partial contains? lista-usaram) lista-todos))
+  (println (quem-usou-recurso lista-ids usaram-recurso-ids))
+
+  (println "\n")
+
+  (println "------ currying ------")
+  ; método que imprime um log na tela
+  (defn log 
+    [data, importancia, mensagem]
+    (str "[" data "][" importancia "] " mensagem)
+  )
+  (def date (.toString (java.util.Date.)))
+
+  (defn curry [f] 
+    (fn [date]
+      (fn [debug]
+        (fn [msg]
+          (f date debug msg)
+        )
+      )
+    )
   )
 
-  (println (quem-usou-recurso lista-ids usaram-recurso-ids))
+  (println ((((curry log) date) "DEBUG") "nada aconteceu"))
+
+  (let [logCurrying (curry log)]
+    (let [dateCurried (logCurrying date)] 
+      (let [importanceCurryied (dateCurried "DEBUG")]
+        (println (importanceCurryied "mensagem 1"))
+        (println (importanceCurryied "mensagem 2"))
+      )
+    )
+  )
 )
