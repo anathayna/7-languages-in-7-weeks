@@ -12,4 +12,21 @@ console.log(serumano("da silva"));
 
 console.log("\n------ contador ------"); 
 
+function contador(){
+    var total = 0;
+    return function (soma) {
+      if (isNaN(soma)) {
+        total += 1;
+      } else {
+        total += soma;
+      }
+      return total;
+    }
+}
+  
+  c = contador()
+  console.log(c(1));
+  console.log(c(1)); 
+  console.log(c(2));
+
 //build node funcional-closure.js
