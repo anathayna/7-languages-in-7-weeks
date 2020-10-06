@@ -50,3 +50,5 @@ produtos = [produto1, produto2, produto3, servico1, heranca1]
 
 for produto in produtos:
   print(produto.nome + " - imposto: " + str(produto.calcularimposto()))
+
+# build & run: python ./main.py  
