@@ -10,7 +10,11 @@ calcular() ->
       Pid ! {salvar, A + B};
     {Pid, subtracao, A, B} -> 
       Pid ! {salvar, A - B};
-    _ -> io:format("não sei resolver... ~n")
+    {Pid, multiplicacao, A, B} -> 
+      Pid ! {salvar, A * B};
+    {Pid, divisao, A, B} -> 
+      Pid ! {salvar, A / B};
+    _ -> io:format("nao sei resolver... ~n")
   end.
 
 % exercício função incrementar
@@ -19,9 +23,11 @@ memoria(Valor) ->
   receive
     {salvar, V} -> 
       memoria(V);
+    {incrementar, V} -> 
+      memoria(V) + 1;
     imprimir ->
       io:format("valor: ~p~n", [Valor]), memoria(0);
-    _ -> io:format("não sei resolver... ~n")
+    _ -> io:format("nao sei resolver... ~n")
   end.
 
 % erl -make
@@ -32,12 +38,12 @@ start() ->
   C3 ! {Mem, multiplicacao, 7, 4},
   Mem ! imprimir,
   sleep(100),
-  Mem ! imprimir.
+  Mem ! imprimir,
 
-  Mem ! incrementa
+  Mem ! incrementa,
   sleep(100),
-  Mem ! imprimir.
+  Mem ! imprimir,
 
-  Mem ! reset
+  Mem ! reset,
   sleep(100),
   Mem ! imprimir.
