@@ -13,7 +13,7 @@ calculadora() ->
       M ! {salvar, A - B},
       calculadora();
     _ -> 
-      io:format("Nao entendi~n"),
+      io:format("nao entendi~n"),
       calculadora()
   end.
 
@@ -22,10 +22,10 @@ memoria(Z) ->
   receive
     {salvar, V} -> memoria(V);
     imprimir -> 
-      io:format("Valor: ~p~n", [Z]),
+      io:format("valor: ~p~n", [Z]),
       memoria(Z);
     _ -> 
-      io:format("Nao entendi~n"),
+      io:format("nao entendi~n"),
       memoria(Z)
   end.
 
