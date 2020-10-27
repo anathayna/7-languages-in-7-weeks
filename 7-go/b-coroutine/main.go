@@ -20,4 +20,16 @@ func main() {
   go func() { messages <- "ping" }()
   msg := <-messages
   fmt.Println(msg)
+
+  go func() { 
+    for {
+      messages <- "pong"
+      time.Sleep(1000 * time.Millisecond) //goroutine
+    }
+  }() //lambda
+
+  for {
+    msg := <-messages
+    fmt.Println(msg)
+  }
 }
