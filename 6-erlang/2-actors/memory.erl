@@ -2,17 +2,19 @@
 -import(timer,[sleep/1]). % importação do timer
 -export([start/0]). % função que será usada de fora
 
-% adicionar função de multiplicação
-% adicionar função de divisão
 calcular() ->
   receive
     {Pid, soma, A, B} -> 
+      io:format("~p~n", [A + B]),
       Pid ! {salvar, A + B};
     {Pid, subtracao, A, B} -> 
+      io:format("~p~n", [A - B]),
       Pid ! {salvar, A - B};
     {Pid, multiplicacao, A, B} -> 
+      io:format("~p~n", [A * B]),
       Pid ! {salvar, A * B};
     {Pid, divisao, A, B} -> 
+      io:format("~p~n", [A / B]),
       Pid ! {salvar, A / B};
     _ -> io:format("nao sei resolver... ~n")
   end.
@@ -21,12 +23,14 @@ calcular() ->
 % função reset de memória => jogar zero
 memoria(Valor) ->
   receive
-    {salvar, V} -> 
-      memoria(V);
-    {incrementar, V} -> 
-      memoria(V) + 1;
+    {salvar, Valor} -> 
+      memoria(Valor);
+    incrementa -> 
+      memoria(Valor+1);
     imprimir ->
-      io:format("valor: ~p~n", [Valor]), memoria(0);
+      io:format("memoria: ~p~n", [Valor]), memoria(Valor);
+    reset ->
+      memoria(0);
     _ -> io:format("nao sei resolver... ~n")
   end.
 
