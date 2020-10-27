@@ -19,14 +19,16 @@ calcular() ->
     _ -> io:format("nao sei resolver... ~n")
   end.
 
-% exercício função incrementar
-% função reset de memória => jogar zero
+% exercício função incrementar 
+% função reset de memória => zerar
 memoria(Valor) ->
   receive
-    {salvar, Valor} -> 
-      memoria(Valor);
+    {salvar, V} -> 
+      memoria(V);
     incrementa -> 
-      memoria(Valor+1);
+      memoria(Valor + 1);
+    {incrementa, X} ->
+      memoria(Valor + X);
     imprimir ->
       io:format("memoria: ~p~n", [Valor]), memoria(Valor);
     reset ->
@@ -45,6 +47,10 @@ start() ->
   Mem ! imprimir,
 
   Mem ! incrementa,
+  sleep(100),
+  Mem ! imprimir,
+
+  Mem ! {incrementa, 2},
   sleep(100),
   Mem ! imprimir,
 
