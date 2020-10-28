@@ -19,3 +19,23 @@ let user  = {
   
   let user2 = new User("amy", "amy@yma.com");
   console.log(user2.print());
+  let user3 = new User("zoe", "zoe@eoz.com");
+console.log(user3.print());
+
+User.prototype.byebye = function () {
+  return `bye bye ${this.name}`;
+}
+
+console.log(user2.byebye());
+console.log(user3.byebye());
+
+function Premium(name, email) {
+  User.call(this, name, email);
+}
+
+let user4 = new Premium("sumô", "sumo@provedor.com");
+Premium.prototype.hello = function () {
+  return `hello hello ${this.name}`;
+}
+
+console.log(user4.hello());
