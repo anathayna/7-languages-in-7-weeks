@@ -49,3 +49,18 @@ console.log("-----------------------------")
 console.log(aluno2.nome);
 aluno2.imprimeDisciplinas();
 console.log("-----------------------------")
+
+function Professor(nome) {
+    Aluno.call(this, nome)
+    this.constructor = Professor
+  }
+  
+  professor1 = new Professor("celso")
+  professor1.adicionarDisciplina("linguagens")
+  professor1.adicionarDisciplina("paradigmas")
+  
+  console.log(professor1.classType());
+  console.log(professor1.nome);
+  professor1.imprimeDisciplinas();
+  console.log("-----------------------------")
+  
