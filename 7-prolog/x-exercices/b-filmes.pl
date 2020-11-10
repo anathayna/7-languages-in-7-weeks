@@ -5,7 +5,7 @@ Part 1: Write queries to answer the following questions.
     b. Find the movies released in the year 2000.
     c. Find the movies released before 2000.
     d. Find the movies released after 1990.
-    e. Find an actor who has appeared in more than one movie.
+    *e. Find an actor who has appeared in more than one movie.
     f. Find a director of a movie in which Scarlett Johansson appeared.
     g. Find an actor who has also directed a movie.
     h. Find an actor or actress who has also directed a movie.
@@ -31,7 +31,30 @@ Part 2: Add rules to the database to do the following,
 :- discontiguous(actor/3).
 :- discontiguous(actress/3).
 
-released_after_90s(X,Y) :- movie(X, Y), Y >= 1990.
+% (a)
+american_beauty_year(YEAR) :- movie(american_beauty,YEAR).
+
+% (b)
+released_in_00s(MOVIE, YEAR) :- movie(MOVIE, YEAR), YEAR = 2000.
+
+% (c)
+released_before_00s(MOVIE, YEAR) :- movie(MOVIE, YEAR), YEAR < 2000.
+
+% (d)
+released_after_90s(MOVIE,YEAR) :- movie(MOVIE, YEAR), YEAR >= 1990.
+
+% (f)
+director_and_casting(CAST, DIRECTOR) :- actress(MOVIE, CAST, _), director(MOVIE, DIRECTOR).
+director_and_scarlett(DIRECTOR) :- director_and_casting(scarlett_johansson, DIRECTOR).
+
+% (g)
+actor_also_director(ARTIST, DIRECTOR, MOVIE) :- actor(MOVIE, ARTIST, _), director(MOVIE, DIRECTOR), (ARTIST = DIRECTOR).
+
+% (h)
+actor_n_actress_also_director(ARTIST, DIRECTOR, MOVIE) :- (actor(MOVIE, ARTIST, _); actress(MOVIE, ARTIST, _)), director(MOVIE, DIRECTOR), (ARTIST = DIRECTOR).
+
+% (i)
+co_stars(MOVIE) :- actor(MOVIE, john_goodman, _), actor(MOVIE, jeff_bridges, _), MOVIE = MOVIE.
 
 movie(american_beauty, 1999).
 director(american_beauty, sam_mendes).
