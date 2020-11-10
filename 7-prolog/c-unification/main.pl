@@ -1,5 +1,5 @@
-% base de Conhecimento
-% Fonte: https://www.tse.jus.br/eleitor/glossario/termos/elegibilidade
+% base de conhecimento
+% fonte: https://www.tse.jus.br/eleitor/glossario/termos/elegibilidade
 % lista de candidatos do partido
 candidato(maria,22,sao_paulo).
 candidato(jose,45,sao_paulo).
