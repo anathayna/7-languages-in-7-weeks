@@ -9,18 +9,10 @@ palavra(elegant,e,l,e,g,a,n,t).
 % fazer o quebra-cabeca que junte as palavras
 puzzle(H1,H2,H3,V1,V2,V3) :- 
     palavra(H1, _, A, _, B, _, C, _),
-    palavra(V1, _, A, _, ?, _, ?, _),
-    palavra(V2, _, ?, _, B, _, ?, _),
-    palavra(V3, _, ?, _, ?, _, C, _),
-
-    palavra(H2, _, A, _, B, _, C, _),
-    palavra(V1, _, ?, _, A, _, ?, _),
-    palavra(V2, _, ?, _, B, _, ?, _), 
-    palavra(V3, _, ?, _, ?, _, C, _),
-
-    palavra(H3, _, A, _, B, _, C, _),
-    palavra(V1, _, ?, _, ?, _, A, _),
-    palavra(V2, _, ?, _, ?, _, B, _), 
-    palavra(V3, _, ?, _, ?, _, C, _).
+    palavra(H2, _, D, _, E, _, F, _),
+    palavra(H3, _, G, _, H, _, I, _),
+    palavra(V1, _, A, _, D, _, G, _),
+    palavra(V2, _, B, _, E, _, H, _),
+    palavra(V3, _, C, _, F, _, I, _).
 
 % consulta gprolog ['b-puzzle'].
