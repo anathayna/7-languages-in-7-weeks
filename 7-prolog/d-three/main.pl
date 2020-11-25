@@ -5,18 +5,15 @@ pai(orozimbo, otavio).
 pai(otavio, luis).
 irmao(orozimbo, manuel).
 irmao(orozimbo, adelia).
-
-vovo(X,Y) :- (mae(W,Y) ; pai(W,Y)), pai(X,W).
-ancestral(X, Y) :- mae(X, Y); pai(X, Y). 
-ancestral(X, Y) :- (mae(X, Z); pai(X, Z)), ancestral(Z, Y). 
-tioavo(X, Y) :- irmao(X, H), pai(H, Z), pai(Z, Y); irmao(X, H), pai(H, Z), mãe(Z, Y).
-primo(A,B) :- homem(A),genitor(X,A), irmao(X,Y), genitor(Y,B).
-primo_1(X, Y) :- pai(A, X), irmao(A, B), pai(Y,B).
-sogro(X, Y) :- ().
-cunhado(X, Y) :- ().
-primos_1(X, Y) :- ().
-primos_2(X, Y) :- ().
-
+ 
+ancestral(X, Y) :- mae(X, Y); pai(X, Y).  
+vovos(X, Y) :- mae(X, A); pai(X, A), ancestral(A, Y). 
+sogrx(X, Y) :- pai(X, A) , mae(B, A) , mae(Y, B) ; pai(Y, B) ; pai(B, A), mae(X, A), mae(Y, B) ; pai(Y, B).
+irmaos(X, Y) :- irmao(Y, X) ; irmao(X, Y), \+ (Y = X).
+cunhadx(X, Y) :- pai(X, A), mae(B, A), irmaos(B, Y) ; pai(B, A), mae(X, A), irmaos(B, Y).
+tio(X, Y) :- pai(A, X), irmaos(A, Y).
+primos(X, Y) :- tios(X, A), pai(A, Y) ; mae(A, Y).
+tioavo(X, Y) :- avoa(A, Y), irmaos(A, X).
 
 % consulta gprolog ['main'].
 % ancestral(maria, luis). true.
