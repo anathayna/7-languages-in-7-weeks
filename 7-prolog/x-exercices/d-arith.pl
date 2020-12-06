@@ -2,5 +2,9 @@
 % L = [0, 10, 3, -2], N = 10
 % max(N,L). 
 
-max([X,Y|T],M) :- X >= Y, !, max([X|T], M).
-max([X,Y|T],M) :- max([Y|T], M).
+max(X, [X]).
+max(X, [Y|L]):- max(X,L), X >= Y, !.
+max(Y, [Y|_]).
+
+% consultar gprolog ['d-arith'].
+% max(Y,[3,2,1,7,4]).
